@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model times{
+  id Int @id @default(autoincrement())
+  nome String @db.VarChar(255) @unique
+}
+
+model poketime{
+  id Int @id @default(autoincrement())
+  id_time Int
+  nome String @db.VarChar(255) @unique
+}
